@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-role-jumphost
+webssh_repo: https://github.com/jychoy92/webssh.git
+webssh_dest: /apps/webssh

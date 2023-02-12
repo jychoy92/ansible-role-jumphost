@@ -1,0 +1,11 @@
+---
+- name: Clone WebSSH repository
+  git:
+    repo: "{{ webssh_repo }}"
+    dest: "{{ webssh_dest }}"
+    force: yes
+
+- name: Start WebSSH containers
+  shell: docker compose up -d
+  args:
+    chdir: "{{ webssh_dest }}"
