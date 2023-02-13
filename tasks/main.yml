@@ -4,8 +4,14 @@
     repo: "{{ webssh_repo }}"
     dest: "{{ webssh_dest }}"
     force: yes
+    
+- name: Check if the container named 'webssh' is up
+  command: docker ps --filter "name=^webssh" --format "{{.Names}}"
+  register: webssh_container
+  ignore_errors: true
 
 - name: Start WebSSH containers
-  shell: docker compose up -d
+  shell: docker-compose up -d
   args:
     chdir: "{{ webssh_dest }}"
+  when: webssh_container.stdout.find("webssh") == -1
