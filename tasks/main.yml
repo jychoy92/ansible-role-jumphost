@@ -9,6 +9,7 @@
   command: docker ps --filter "name=^webssh"
   register: webssh_container
   ignore_errors: true
+  change_when: false
 
 - name: Start WebSSH containers
   shell: docker-compose up -d
