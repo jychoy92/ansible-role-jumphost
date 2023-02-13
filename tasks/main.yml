@@ -4,6 +4,10 @@
     repo: "{{ webssh_repo }}"
     dest: "{{ webssh_dest }}"
     force: yes
+  register: gitpull_status
+ 
+- name: debug
+  var: gitpull_status
     
 - name: Check if the container named 'webssh' is up
   command: docker ps --filter "name=^webssh"
