@@ -13,7 +13,7 @@
   changed_when: false
 
 - name: Start WebSSH containers
-  shell: docker-compose down && docker-compose up -d
+  shell: docker compose down && docker compose up -d
   args:
     chdir: "{{ webssh_dest }}"
   when: webssh_container.stdout.find("webssh") == -1 or gitpull_status.changed
