@@ -9,4 +9,4 @@
   shell: docker compose up -d
   args:
     chdir: "{{ webssh_dest }}"
-  when: "'webssh' not in docker ps --format '{{.Names}}'"
+  when: "'webssh' not in (docker ps --format '{{.Names}}' | tr -d '.')"
