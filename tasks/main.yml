@@ -6,7 +6,7 @@
     force: yes
     
 - name: Check if the container named 'webssh' is up
-  command: docker ps --filter "name=^webssh" --format "{{.Names}}"
+  command: docker ps --filter "name=^webssh"
   register: webssh_container
   ignore_errors: true
 
